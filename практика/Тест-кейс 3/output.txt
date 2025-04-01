@@ -1,0 +1,44 @@
++----------------------------------+
+| Tables_in_sandbox_db |
++----------------------------------+
+| clients                          |
+| employees                        |
+| order_services                   |
+| orders                           |
+| services                         |
+| tours                            |
++----------------------------------+
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| client_id       | int          | NO   | PRI | NULL    | auto_increment |
+| first_name      | varchar(50)  | NO   |     | NULL    |                |
+| last_name       | varchar(50)  | NO   |     | NULL    |                |
+| phone           | varchar(20)  | NO   |     | NULL    |                |
+| email           | varchar(100) | YES  |     | NULL    |                |
+| passport_number | varchar(20)  | NO   | UNI | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
++---------------+---------------+------+-----+---------+----------------+
+| Field         | Type          | Null | Key | Default | Extra          |
++---------------+---------------+------+-----+---------+----------------+
+| tour_id       | int           | NO   | PRI | NULL    | auto_increment |
+| tour_name     | varchar(100)  | NO   |     | NULL    |                |
+| country       | varchar(50)   | NO   |     | NULL    |                |
+| city          | varchar(50)   | NO   |     | NULL    |                |
+| duration_days | int           | NO   |     | NULL    |                |
+| price         | decimal(10,2) | NO   |     | NULL    |                |
+| description   | text          | YES  |     | NULL    |                |
++---------------+---------------+------+-----+---------+----------------+
++-------------+------------------------------------------------+------+-----+---------+----------------+
+| Field       | Type                                           | Null | Key | Default | Extra          |
++-------------+------------------------------------------------+------+-----+---------+----------------+
+| order_id    | int                                            | NO   | PRI | NULL    | auto_increment |
+| client_id   | int                                            | NO   | MUL | NULL    |                |
+| tour_id     | int                                            | NO   | MUL | NULL    |                |
+| employee_id | int                                            | NO   | MUL | NULL    |                |
+| order_date  | date                                           | NO   |     | NULL    |                |
+| start_date  | date                                           | NO   |     | NULL    |                |
+| end_date    | date                                           | NO   |     | NULL    |                |
+| total_price | decimal(10,2)                                  | NO   |     | NULL    |                |
+| status      | enum('pending','confirmed','paid','cancelled') | YES  |     | pending |                |
++-------------+------------------------------------------------+------+-----+---------+----------------+
